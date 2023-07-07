@@ -14,8 +14,10 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        // 'guard' => 'web',
+        'guard' => 'member',
+        // 'passwords' => 'users',
+        'passwords' => 'members',
     ],
 
     /*
@@ -36,10 +38,16 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
+        'member' => [
+            'driver' => 'jwt', 
+            'provider' => 'members', // members table
+        ], 
+        
+        // 'web' => [
+        //     'driver' => 'session',
+        //     'provider' => 'members', // members table
+        //     // 'provider' => 'users',
+        // ],
     ],
 
     /*
@@ -60,11 +68,16 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'members' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Member::class,
         ],
 
+        // 'users' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Models\User::class,
+        // ],
+        
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -87,8 +100,14 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        // 'users' => [
+        //     'provider' => 'users',
+        //     'table' => 'password_resets',
+        //     'expire' => 60,
+        //     'throttle' => 60,
+        // ],
+        'members' => [
+            'provider' => 'members',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
