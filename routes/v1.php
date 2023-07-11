@@ -46,24 +46,24 @@ Route::post('/members/login', [AuthController::class, 'login']);
 Route::post('/members/register', [RegisterController::class, 'register']);
 
 // f03 忘記密碼
-// 1. 查詢會員簡訊驗證狀態
-// /v1/members/get-status
-Route::get('/members/get-status', function(){});
+// 1. 查詢會員簡訊驗證狀態 
+// /v1/members/get-status (與 f01 重複)
+// Route::get('/members/get-status', function(){});
 
 // 2. 發送驗證簡訊
-// /v1/auth/sms/send
-Route::post('/auth/sms/send', function(){});
+// /v1/auth/sms/send (與 f01 重複)
+// Route::post('/auth/sms/send', function(){});
 
 // 3. 驗證簡訊 (簡訊驗證碼頁面) 若驗證成功，取得 token
 // 取得的 token 當下，要把這隻手機號碼新增在的會員表的 XXX 欄位嗎？做成欄位嗎?
-// /v1​/auth​/sms​/verify
-Route::post('/auth/sms/verify', function(){});
+// /v1​/auth​/sms​/verify (與 f01 重複)
+// Route::post('/auth/sms/verify', function(){});
 
 // 4. 會員-已驗證，進入 routes/v2.php 重設密碼
 
 // 5. 會員-未驗証，修改會員資料(系統帶出既有資料，非登入狀態)
-// /v1/members/{id}
-Route::patch('/v1/members/{id}', function(){});
+// /v1/members/{id} (與 f01 重複)
+// Route::patch('/members/{id}', function(){});
 
 
 // f04 修改密碼(登入狀態)
