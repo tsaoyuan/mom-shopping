@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Member\AuthController;
 use App\Http\Controllers\Member\RegisterController;
+use App\Http\Controllers\Member\SearchController;
 
 Route::get('/hello',function(){
     return 'hey yo! Mom happy shopping.';
@@ -12,7 +13,7 @@ Route::get('/hello',function(){
 // f01 註冊
 // 1. 查詢會員簡訊驗證狀態
 // /v1/members/get-status
-Route::get('/members/get-status', function(){});
+Route::get('/members/get-status', [SearchController::class,'getStatus']);
 
 // 2. 發送驗證簡訊
 // /v1/auth/sms/send
