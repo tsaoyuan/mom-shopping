@@ -15,6 +15,10 @@ Route::get('/hello',function(){
 // /v1/members/get-status
 Route::get('/members/get-status', [SearchController::class,'getStatus']);
 
+Route::get('/members/status', function(){
+    return view('members.status');
+});
+
 // 2. 發送驗證簡訊
 // /v1/auth/sms/send
 Route::post('/auth/sms/send', function(){});
