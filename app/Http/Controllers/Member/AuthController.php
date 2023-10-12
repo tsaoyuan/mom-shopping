@@ -14,7 +14,7 @@ class AuthController extends Controller
     {
 
         $validated = $this->validate($request, [
-            'phone' => ['required'], 
+            'mobile' => ['required'], 
             // 'email' => ['required'],
             // 'name' => ['required'],
             'password' => ['required'],
@@ -22,10 +22,12 @@ class AuthController extends Controller
         // dd($validated);
 
         $token = Auth::attempt($validated);
-        // $user = Auth::user();
-        dd($token);
+        $user = Auth::user();
         // dd($user);
-        // return response(['data' => $token]);
+        return response([
+            'token' => $token,
+            'data'  => $user
+        ]);
         // return '會員登入';
     }
 }
