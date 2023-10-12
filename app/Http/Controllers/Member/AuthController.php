@@ -30,4 +30,10 @@ class AuthController extends Controller
         ]);
         // return '會員登入';
     }
+
+    public function logout(){
+        // 清除使用者的認證狀態(JWT 工具產生的 token)
+        Auth::logout();
+        return response()->noContent();
+    }
 }

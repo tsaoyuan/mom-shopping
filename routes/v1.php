@@ -84,3 +84,8 @@ Route::middleware('auth:member')->group(function () {
     });
 });
 
+// 登出
+Route::middleware(['auth:member'])->group(function () {
+    Route::post('/members/logout', [AuthController::class, 'logout']);
+});
+
