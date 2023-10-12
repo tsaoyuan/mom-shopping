@@ -12,13 +12,14 @@ class SearchController extends Controller
 {
     public function getStatus(Request $request){
 
+        // Query parameters
         $validator = Validator::make($request->all(), [
+            // The mobile number. Example: 0923456789
             'mobile' => ['required', 'string', 'size:10', 'regex:/^[0-9]+$/'],
         ]);
 
         if($validator->fails()){
-            // dd(111);
-            return BadRequestResource::make($validator->errors());
+            return SystemResponse::errorResponse($validator->errors()); 
         }
 
     }
