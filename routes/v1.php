@@ -16,7 +16,8 @@ Route::get('/hello',function(){
 Route::get('/members/get-status', [SearchController::class,'getStatus']);
 
 Route::get('/members/status', function(){
-    return view('members.status');
+    
+    return view('members.statuss');
 });
 
 // 2. 發送驗證簡訊
