@@ -34,10 +34,36 @@
         },
       })
       .then(response => {
+        // HTTP status code 在 300 及以上  
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          // response status = 400 do.. 
+          if (response.status === 400) {
+            // 用 response.json() 取得 status = 400 的 response
+            // console.log(response.json());
+
+            // errorData 是 response.json()，errorData 並不是關鍵字 
+            return response.json().then(errorData => {
+              // 自定義 response 的錯誤訊息在 key = errors 裏面
+              const errorsMsg = errorData.errors;
+              const outputElement = document.getElementById('data-list');
+
+              // 渲染錯誤訊息到瀏覽器上
+              for (const key in errorsMsg) {
+                if (errorsMsg.hasOwnProperty(key)) {
+                  const listItem = document.createElement('li');
+                  listItem.textContent = `"${key}": ${errorsMsg[key]}`;
+                  outputElement.appendChild(listItem);
+                }
+              }
+            });
+          } else {
+            // 其他未定義的 status 暫時用下列訊息取代
+            throw new Error('Network response was not ok');
+          }
         }
-        return response.json(); // 將 response 解析為 JSON
+        // HTTP status code 在 200 到 299 之間
+        // 將 response 解析為 JSON
+        return response.json();
       })
       .then(data => {
         // 處理 response 的數據 
