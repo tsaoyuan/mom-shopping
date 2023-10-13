@@ -45,10 +45,15 @@
 
         const outputElement = document.getElementById('data-list');
 
-        const dataElement = document.createElement('li');
-        dataElement.textContent = JSON.stringify(data);
-        outputElement.appendChild(dataElement);
-
+        // JS 迴圈的另類用法 `for...in` 類似 PHP 的 foreach ($data as $key => $value) 
+        // JS 的 const key 的變數 key 如同 PHP 的 $key
+        for (const key in data) {
+          if (data.hasOwnProperty(key)) {
+            const listItem = document.createElement('li');
+            listItem.textContent = `"${key}": ${data[key]}`;
+            outputElement.appendChild(listItem);
+          }
+        }
       })
       .catch(error => {
         // 處理錯誤情況
