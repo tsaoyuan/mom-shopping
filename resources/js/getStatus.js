@@ -1,4 +1,13 @@
-function getStatus(mobile) {
+function getStatus() {
+  
+  const mobile = document.getElementById('mobile').value;
+  const dataList = document.getElementById('data-list');
+  dataList.innerHTML = ''; // 清空内容
+  // console.log(mobile);
+  memberStatus(mobile);
+}
+
+function memberStatus(mobile) {
 
   const url = `/v1/members/get-status?mobile=${mobile}`;
   

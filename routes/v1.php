@@ -13,6 +13,16 @@ Route::get('/hello',function(){
 // f01 註冊
 // 1. 查詢會員簡訊驗證狀態
 // /v1/members/get-status
+// Backend-API
+Route::get('/members/get-status', [SearchController::class,'getStatus']);
+// Fontend
+Route::get('/status', function(){
+    
+    return view('members.status');
+});
+// f01 註冊
+// 1. 查詢會員簡訊驗證狀態
+// /v1/members/get-status
 Route::get('/members/get-status', [SearchController::class,'getStatus']);
 
 Route::get('/members/status', function(){

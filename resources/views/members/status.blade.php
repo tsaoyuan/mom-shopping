@@ -2,7 +2,6 @@
 <html>
 
 <head>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="{{ Vite::asset('resources/js/getStatus.js') }}"></script>
   <title>會員狀態</title>
 </head>
@@ -30,18 +29,13 @@
   <div class="getStatus">
     <label for="mobile">手機號碼:</label>
     <input name="mobile" id="mobile" type="text">
-    <button id="getStatus">查詢狀態</button>
+    <button onclick="getStatus()">查詢狀態</button>
   </div>
 
   <div id="title">
     <span>Member status</span>
   </div>
   <ul id="data-list" class="data-list"></ul>
-
-  <script>
-    const mobile = '0956632444';
-    getStatus(mobile);
-  </script>
 
 </body>
 
