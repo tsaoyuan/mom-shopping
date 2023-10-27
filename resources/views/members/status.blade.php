@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <script src="{{ Vite::asset('resources/js/getStatus.js') }}"></script>
+  <script src="{{ asset('/js/getStatus.js') }}"></script>
   <title>會員狀態</title>
 </head>
 <style>
