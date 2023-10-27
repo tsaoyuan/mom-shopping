@@ -11,6 +11,7 @@ class StatusResource extends JsonResource
     {
         // return parent::toArray($request);
         return [
+            'status' => 'EXIST',
             'id'     => $this->getKey(),
             'name'   => $this->name,
             'mobile' => $this->mobile,
