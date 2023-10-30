@@ -10,14 +10,29 @@ use App\Http\Resources\Member\RegisterResource;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * @group 會員管理
+ * 
+ * APIs for managing members
+ */
 class MemberController extends Controller
 {
+    /** 
+     * 會員註冊
+     * @unauthenticated
+     * 
+     * @responseFile status=201 responses/Member/register.success.json
+     * @responseFile status=400 responses/Member/register.parameterError.json
+     * @responseFile status=409 responses/Member/register.mobileAlreadyExists.json
+     */
     public function register(Request $request){
         
         // 手動建立驗證器 (Validator)
         $validator = Validator::make($request->all(),[
+            // 姓名 Example:王小明
             'name' => ['required'], 
             'password' => ['required', 'alpha_num:ascii', 'min:6','max:12'],
+            // 電話 Example:0900000000
             'mobile' => ['required', 'string', 'size:10', 'regex:/^[0-9]+$/'],
         ]);
 
