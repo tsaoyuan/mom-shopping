@@ -6,6 +6,7 @@ use App\Models\Member;
 use Illuminate\Http\Request;
 use App\Helpers\SystemResponse;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Member\RegisterResource;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -37,14 +38,14 @@ class MemberController extends Controller
             return SystemResponse::basicResponse('手機已存在', 409);
         }
 
+        // 會員註冊成功
         $member = Member::create(
             array_merge(
                 $validated, ['password' => Hash::make($validated['password'])]
             )
         );
 
-        // return $validated;
-        return $member;
+        return (SystemResponse::dataResponse(RegisterResource::make($member), '會員註冊成功', 201));
 
     }
 }
