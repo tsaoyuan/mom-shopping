@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Member;
 
 use App\Models\Member;
 use Illuminate\Http\Request;
+use App\Helpers\SystemResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -21,7 +22,19 @@ class MemberController extends Controller
 
         // 驗證器-驗證參數錯誤
         if($validator->fails()){
-            dd($validator->errors());
+            return SystemResponse::errorResponse($validator->errors()); 
+        }
+
+        // 驗證成功，獲取已驗證的值 (name, password, mobile)
+        $validated = $validator->validated();
+        $mobile = $validated['mobile'];
+
+        // 判斷 mobile 是否已經被註冊過
+        $member = Member::where('mobile', $mobile)->first();
+        
+        if ($member) {
+            // 手機已經被註冊過
+            return SystemResponse::basicResponse('手機已存在', 409);
         }
 
         $member = Member::create(
