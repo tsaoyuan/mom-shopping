@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Member\AuthController;
-use App\Http\Controllers\Member\RegisterController;
+use App\Http\Controllers\Member\MemberController;
 use App\Http\Controllers\Member\SearchController;
 
 Route::get('/hello',function(){
@@ -59,7 +59,7 @@ Route::patch('/members/{id}', function(){});
 // f02 登入
 // test register, login for jwt
 Route::post('/members/login', [AuthController::class, 'login']);
-Route::post('/members/register', [RegisterController::class, 'register']);
+Route::post('/members/register', [MemberController::class, 'register']);
 
 // f03 忘記密碼
 // 1. 查詢會員簡訊驗證狀態 
