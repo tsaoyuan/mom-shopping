@@ -1,0 +1,11 @@
+{
+  "timestamp": "2023-10-31 09:41:54",
+  "status": 200,
+  "message": "登入成功",
+  "data": {
+      "id": 6,
+      "mobile": "0956632444",
+      "name": "XXX",
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwODMvdjEvbWVtYmVycy9sb2dpbiIsImlhdCI6MTY5ODc0NTMxNCwiZXhwIjoxNjk4NzQ4OTE0LCJuYmYiOjE2OTg3NDUzMTQsImp0aSI6Inp4aUdwYTIzZDZodHljVngiLCJzdWIiOiI2IiwicHJ2IjoiODY2NWFlOTc3NWNmMjZmNmI4ZTQ5NmY4NmZhNTM2ZDY4ZGQ3MTgxOCJ9.soYPzwTNvDZVO8pellNZPrK-VOgdBBmweiQfe-gxb1w"
+  }
+}

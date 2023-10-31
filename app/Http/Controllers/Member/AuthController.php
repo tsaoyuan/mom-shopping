@@ -10,14 +10,29 @@ use App\Http\Resources\Member\LoginResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * @group Member management / 會員管理
+ * 
+ * APIs for managing members
+ */
 class AuthController extends Controller
 {
+    /** 
+     * member login / 會員登入
+     * @unauthenticated
+     * 
+     * @responseFile status=200 responses/Member/login.success.json
+     * @responseFile status=400 responses/Member/login.parameterError.json
+     * @responseFile status=400 responses/Member/login.mobileOrPasswordError.json
+     * @responseFile status=404 responses/Member/login.notExist.json
+     */
     public function login(Request $request)
     {
         // Body parameters
         $validator = Validator::make(
             $request->all(),
             [
+                // 電話 Example:0900000000
                 'mobile'   => ['required', 'string', 'size:10', 'regex:/^[0-9]+$/'],
                 'password' => ['required', 'string', 'min:4', 'max:8'],
             ]
