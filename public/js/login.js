@@ -39,12 +39,19 @@ function getToken(mobile, password) {
   })
   .then(data => {
     // 登入成功
-    // 開啟主畫面
-    // 關閉登入畫面
-    // console.log("oooooo");
-    const innerData = data.data.token;
-    console.log(innerData);
+    // do..
 
+    // 關閉登入畫面 and 開啟主畫面
+    const loginDiv = document.getElementById('login');
+    const homeDiv = document.getElementById('home');
+    if (data.data.token) {
+      loginDiv.style.display = 'none';
+      homeDiv.style.removeProperty('display');
+
+      // console.log("oooooo");
+      const innerData = data.data.token;
+      console.log(innerData);
+    }
   })
   .catch(error => {
     // 處理錯誤情況

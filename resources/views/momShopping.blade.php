@@ -53,6 +53,23 @@
     </div>
   </div>
 
+  <!-- 登入後的主畫面 -->
+  <div id="home" class="container mx-auto p-4" style="display: none;">
+        <div class="text-center">
+          <p class="text-lg font-semibold mb-4">歡迎 XXX</p>
+          <!-- 歡迎訊息 -->
+            <div class="space-x-4">
+              <a id="btn-products" href="#" class="btn-orders text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">產品</a>
+
+                <a id="btn-cart" href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">購物車</a>
+
+                <a id="btn-orders" href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">訂單</a>
+
+                <a id="btn-logout" href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">登出</a>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
