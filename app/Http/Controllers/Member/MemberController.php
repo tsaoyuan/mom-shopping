@@ -11,14 +11,14 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 /**
- * @group 會員管理
+ * @group Member management / 會員管理
  * 
  * APIs for managing members
  */
 class MemberController extends Controller
 {
     /** 
-     * 會員註冊
+     * member register / 會員註冊
      * @unauthenticated
      * 
      * @responseFile status=201 responses/Member/register.success.json

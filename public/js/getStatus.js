@@ -1,6 +1,6 @@
 function getStatus() {
   
-  const mobile = document.getElementById('mobile').value;
+  const mobile = document.getElementById('get-status-mobile').value;
   const dataList = document.getElementById('data-list');
   dataList.innerHTML = ''; // 清空内容
   // console.log(mobile);

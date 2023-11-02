@@ -10,6 +10,9 @@ Route::get('/hello',function(){
     return 'hey yo! Mom happy shopping.';
 });
 
+// 首頁-登入的畫面
+Route::get('/', fn() => view('auth.login'));
+
 // f01 註冊
 // 1. 用手機查詢會員基本資訊
 // /v1/members/get-status
