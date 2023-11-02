@@ -23,7 +23,7 @@ class AuthController extends Controller
      * 
      * @responseFile status=200 responses/Member/login.success.json
      * @responseFile status=400 responses/Member/login.parameterError.json
-     * @responseFile status=400 responses/Member/login.mobileOrPasswordError.json
+     * @responseFile status=400 responses/Member/login.passwordError.json
      * @responseFile status=404 responses/Member/login.notExist.json
      */
     public function login(Request $request)
@@ -57,7 +57,7 @@ class AuthController extends Controller
 
         // 帳號密碼錯誤 
         if (!$token) {
-            return SystemResponse::basicResponse('帳號密碼錯誤', 400);
+            return SystemResponse::basicResponse('密碼錯誤', 400);
         } else {
             // 登入成功    
             $member['token'] = $token;
