@@ -11,6 +11,7 @@ class RegisterResource extends JsonResource
         return [
             'id'                    => $this->getKey(),
             'mobile'                => $this->mobile,
+            'email'                 => $this->email,
             'name'                  => $this->name,
         ];
     }
