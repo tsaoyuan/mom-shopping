@@ -25,11 +25,13 @@ Route::get('/status', function(){
     return view('members.status');
 });
 
-// 2. 註冊
-Route::post('/members', [MemberController::class, 'register']);
+Route::prefix('members')->group(function(){
+    // 註冊
+    Route::post('/', [MemberController::class, 'register']);
+    // 登入
+    Route::post('/login', [AuthController::class, 'login']);
+});
 
-// f02 登入
-Route::post('/members/login', [AuthController::class, 'login']);
 
 // 登出
 Route::middleware(['auth:member'])->group(function () {
