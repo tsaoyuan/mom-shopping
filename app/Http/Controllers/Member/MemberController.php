@@ -71,7 +71,9 @@ class MemberController extends Controller
          * 寄出 歡迎會員註冊信
          */ 
         $hostMail = config('mail.from.address');
-        Mail::to($hostMail)->send(new WellcomeMomShopping($member));
+        // Mail::to($hostMail)->send(new WellcomeMomShopping($member));
+        Mail::to($hostMail)->queue(new WellcomeMomShopping($member));
+        
         return (SystemResponse::dataResponse(RegisterResource::make($member), '會員註冊成功', 201));
 
     }
