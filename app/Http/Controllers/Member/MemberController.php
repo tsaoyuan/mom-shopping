@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Member;
 use App\Models\Member;
 use Illuminate\Http\Request;
 use App\Helpers\SystemResponse;
+use App\Mail\WellcomeMomShopping;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Member\RegisterResource;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\Member\RegisterResource;
 
@@ -66,6 +67,11 @@ class MemberController extends Controller
             )
         );
 
+        /* mail 功能
+         * 寄出 歡迎會員註冊信
+         */ 
+        $hostMail = config('mail.from.address');
+        Mail::to($hostMail)->send(new WellcomeMomShopping($member));
         return (SystemResponse::dataResponse(RegisterResource::make($member), '會員註冊成功', 201));
 
     }
