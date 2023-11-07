@@ -32,7 +32,7 @@ class WellcomeMomShopping extends Mailable
         // 資料傳給 blade 前自訂其格式，使用 Content 定義的 with 參數來手動將資料傳給 View
         $member = $this->member;
         return new Content(
-            view: 'mail.wellcomeMomshopping',
+            view: 'mail.wellcomeMomShopping',
             with:[
                 'memberName' => $member->name, 
             ],
